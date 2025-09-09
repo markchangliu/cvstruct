@@ -1,4 +1,4 @@
-from typing import List, Literal
+from typing import List, Literal, Tuple
 
 try:
     from typing import TypeAlias
@@ -7,8 +7,6 @@ except:
 
 import numpy as np
 import numpy.typing as npt
-
-from .utils import CountType
 
 
 ContourType: TypeAlias = npt.NDArray[np.int32]
@@ -20,7 +18,7 @@ ContourType
 ContourShapeType: TypeAlias = Tuple[int, Literal[1], Literal[2]]
 """
 ContourShapeType
-    `Tuple[CountType, Literal[1], Literal[2]]`, `[num_points, 1, 2]`
+    `Tuple[int, Literal[1], Literal[2]]`, `[num_points, 1, 2]`
 """
 
 ContoursType: TypeAlias = List[npt.NDArray[np.int32]]
