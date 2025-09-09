@@ -11,13 +11,13 @@ import numpy.typing as npt
 
 ContourType: TypeAlias = npt.NDArray[np.int32]
 """
-ContourType
+`ContourType`
     `NDArray[np.int32]`, `(num_points, 1, 2)`, each `(1, 2)` is `(x, y)`
 """
 
 ContourShapeType: TypeAlias = Tuple[int, Literal[1], Literal[2]]
 """
-ContourShapeType
+`ContourShapeType`
     `Tuple[int, Literal[1], Literal[2]]`, `[num_points, 1, 2]`
 """
 
