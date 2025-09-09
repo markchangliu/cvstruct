@@ -1,0 +1,34 @@
+from typing import List, Literal, Tuple
+
+try:
+    from typing import TypeAlias
+except:
+    from typing_extensions import TypeAlias
+
+import numpy as np
+import numpy.typing as npt
+
+
+PolyLabelmeType: TypeAlias = List[Tuple[float, float]]
+"""
+`PolyLabelmeType`
+    `List[Tuple[float, float]]`, `(num_points, (2, ))`, `[[x1, y1], [x2, y2], ...]`
+"""
+
+PolysLabelmeType: TypeAlias = List[List[Tuple[float, float]]]
+"""
+`PolysLabelmeType`
+    `List[List[Tuple[float, float]]]`, `(num_polys, (num_points, (2, )))`
+"""
+
+PolyCocoType: TypeAlias = List[float]
+"""
+`PolyCocoType`
+    `List[float]`, `(num_points * 2, )`, `[x1, y1, x2, y2, ...]`
+"""
+
+PolysCocoType: TypeAlias = List[List[float]]
+"""
+`PolysCocoType`
+    `List[List[float]]`, `(num_polys, (num_points * 2, ))`
+"""
