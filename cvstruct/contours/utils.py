@@ -2,7 +2,7 @@ from typing import Tuple, List, Dict, Union
 
 import numpy as np
 
-from typedef.contours import ContourType, ContoursType, HierarchiesType
+from cvstruct.typedef.contours import ContourType, ContoursType, HierarchiesType
 
 
 def is_clockwise(contour: ContourType) -> bool:

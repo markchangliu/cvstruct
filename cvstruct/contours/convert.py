@@ -6,9 +6,9 @@ import numpy as np
 import numpy.typing as npt
 import pycocotools.mask as pycocomask
 
-from typedef.contours import ContoursType, ContourType
-from typedef.polys import PolyLabelmeType, PolysLabelmeType, PolyCocoType, PolysCocoType
-from typedef.masks import RLEType, RLEsType, MaskType, MasksType
+from cvstruct.typedef.contours import ContoursType, ContourType
+from cvstruct.typedef.polys import PolyLabelmeType, PolysLabelmeType, PolyCocoType, PolysCocoType
+from cvstruct.typedef.masks import RLEType, RLEsType, MaskType, MasksType
 
 
 def contour_to_poly_labelme(

@@ -3,7 +3,7 @@ from typing import List
 
 import numpy as np
 
-from typedef.insts import Insts
+from cvstruct.typedef.insts import Insts
 
 
 def concat_insts(

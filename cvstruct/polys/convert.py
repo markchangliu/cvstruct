@@ -1,8 +1,8 @@
 
 import numpy as np
 
-from typedef.polys import PolyLabelmeType
-from typedef.contours import ContourType
+from cvstruct.typedef.polys import PolyLabelmeType
+from cvstruct.typedef.contours import ContourType
 
 
 def poly_labelme_to_contour(

@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from typedef.bboxes import BBoxesXYXYType, BBoxesXYWHType
+from cvstruct.typedef.bboxes import BBoxesXYXYType, BBoxesXYWHType
 
 
 def bboxes_xyxy2xywh(

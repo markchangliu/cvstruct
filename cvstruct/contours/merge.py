@@ -1,8 +1,8 @@
 
 import numpy as np
 
-from typedef.contours import ContourType, ContoursType
-from contours.utils import is_clockwise, get_closest_point_idx
+from cvstruct.typedef.contours import ContourType, ContoursType
+from cvstruct.contours.utils import is_clockwise, get_closest_point_idx
 
 
 def merge_two_contour(

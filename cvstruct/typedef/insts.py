@@ -3,9 +3,9 @@ from typing import Optional, Union, List
 import numpy as np
 import numpy.typing as npt
 
-from typedef.bboxes import BBoxesXYXYType
-from typedef.others import CatIDsType, ConfsType
-from typedef.masks import MasksType
+from cvstruct.typedef.bboxes import BBoxesXYXYType
+from cvstruct.typedef.others import CatIDsType, ConfsType
+from cvstruct.typedef.masks import MasksType
 
 
 class Insts:
