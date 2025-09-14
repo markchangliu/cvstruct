@@ -21,6 +21,12 @@ MaskShapeType: TypeAlias = Tuple[int, int]
     `Tuple[int, int]`, `[img_h, img_w]`
 """
 
+MaskImgType: TypeAlias = npt.NDArray[np.uint8]
+"""
+`MaskImgType`
+    `NDArray[np.uint8]`, `(img_h, img_w)`, 0 ~ 255
+"""
+
 MasksType: TypeAlias = npt.NDArray[np.bool_]
 """
 `MasksType`
@@ -31,16 +37,4 @@ MasksShapeType: TypeAlias = Tuple[int, int, int]
 """
 `MasksShapeType`
     `Tuple[int, int, int]`, `[num_masks, img_h, img_w]`
-"""
-
-RLEType: TypeAlias = Dict[str, Any]
-"""
-`RLEType`
-    `Dict[str, Any]`, `{"size": [img_h, img_w], "counts": "XXXXX"}`
-"""
-
-RLEsType: TypeAlias = List[Dict[str, Any]]
-"""
-`RLEsType`
-    `List[Dict[str, Any]]`, `[rle1, rle2, ...]`
 """

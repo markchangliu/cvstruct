@@ -8,7 +8,8 @@ import pycocotools.mask as pycocomask
 
 from cvstruct.typedef.contours import ContoursType, ContourType
 from cvstruct.typedef.polys import PolyLabelmeType, PolysLabelmeType, PolyCocoType, PolysCocoType
-from cvstruct.typedef.masks import RLEType, RLEsType, MaskType, MasksType
+from cvstruct.typedef.masks import MaskType, MasksType
+from cvstruct.typedef.rles import RLEType, RLEsType
 
 
 def contour_to_poly_labelme(

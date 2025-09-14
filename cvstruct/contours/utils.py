@@ -2,10 +2,10 @@ from typing import Tuple, List, Dict, Union
 
 import numpy as np
 
-from cvstruct.typedef.contours import ContourType, ContoursType, HierarchiesType
+import cvstruct.typedef.contours as cnt_type
 
 
-def is_clockwise(contour: ContourType) -> bool:
+def is_clockwise(contour: cnt_type.cnt_type.ContourType) -> bool:
     contour_next = np.empty_like(contour)
     point_next_idx = list(range(1, len(contour) + 1))
     point_next_idx[-1] = 0
@@ -20,8 +20,8 @@ def is_clockwise(contour: ContourType) -> bool:
     return clockwise_flag
 
 def get_closest_point_idx(
-    cnt1: ContourType,
-    cnt2: ContourType
+    cnt1: cnt_type.ContourType,
+    cnt2: cnt_type.ContourType
 ) -> Tuple[int, int]:
     # cnt1 shape: (n, 1, 2)
     # cnt2 shape: (1, m, 2)
@@ -36,24 +36,17 @@ def get_closest_point_idx(
 
     return idx1, idx2
 
-def get_parent_child_contours(
-    cnts: ContoursType,
-    hierarchies: HierarchiesType
-) -> List[Dict[str, Union[ContourType, ContoursType]]]:
-    """
-    Returns
-    --------
-        `contour_groups`, `List[Dict[str, Union[ContourType, ContoursType]]]`
-            `(num_groups, {1: num_child_cnts})`, 
-            `[{"parent": parent_cnt, "child": child_cnt_list}, ...]`, \n
-    """
-    cnt_groups = [{"parent": None, "child": []}] * len(cnts)
+def get_contour_groups(
+    cnts: cnt_type.ContoursType,
+    hierarchies: cnt_type.HierarchiesType
+) -> cnt_type.ContourGroupsType:
+    cnt_groups = [{"parent": None, "children": []}] * len(cnts)
     for i, (cnt, hierarchy) in enumerate(zip(cnts, hierarchies[0])):
         if hierarchy[2] == -1:
             cnt_groups[i]["parent"] = cnt
         else:
             parent_cnt_idx = hierarchy[2]
-            cnt_groups[parent_cnt_idx]["child"].append(cnt)
+            cnt_groups[parent_cnt_idx]["children"].append(cnt)
     
     cnt_groups_ = []
     for cnt_group in cnt_groups:
@@ -64,3 +57,4 @@ def get_parent_child_contours(
     del cnt_groups_
 
     return cnt_groups
+

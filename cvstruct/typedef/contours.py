@@ -1,4 +1,4 @@
-from typing import List, Literal, Tuple
+from typing import List, Literal, Tuple, Dict, TypedDict
 
 try:
     from typing import TypeAlias
@@ -25,6 +25,22 @@ ContoursType: TypeAlias = List[npt.NDArray[np.int32]]
 """
 `ContoursType`
     `List[NDArray[np.int32]]`, `(num_cnts, (num_points (1, 2)))`
+"""
+
+class ContourGroupType(TypedDict):
+    """
+    `ContourGroupType`
+        `List[Dict[str, Union[ContourType, ContoursType]]]`, 
+        `{"parent": parent_cnt, "children": child_cnt_list}`
+    """
+    parent: ContourType
+    children: List[ContourType]
+
+ContourGroupsType: TypeAlias = List[ContourGroupType]
+"""
+`ContourGroupsType`
+    `List[ContourGroupType]`, `(num_groups, )`,
+    `[{"parent": parent_cnt, "children": child_cnt_list}, ...]`
 """
 
 HierarchiesType: TypeAlias = npt.NDArray[np.int32]

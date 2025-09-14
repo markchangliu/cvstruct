@@ -27,8 +27,15 @@ BBoxLabelmeType: TypeAlias = Tuple[Tuple[float, float], Tuple[float, float]]
     `Tuple[Tuple[float, float], Tuple[float, float]], `(2, (2, ))`, `[[x1, y1], [x2, y2]], ...]`
 """
 
-BBoxCOCOType: TypeAlias = Tuple[float, float, float, float]
+BBoxCocoType: TypeAlias = Tuple[float, float, float, float]
 """
-`BBoxCOCOType`
+`BBoxCocoType`
     `Tuple[float, float, float, float]`, `(4, )`, `[x1, y1, w, h]`
+"""
+
+BBoxYoloType: TypeAlias = Tuple[float, float, float, float]
+"""
+`BBoxYoloType`
+    `Tuple[float, float, float, float]`, `(4, )`, 
+    `[x_ctr_norm, y_ctr_norm, w_norm, y_norm]`
 """
