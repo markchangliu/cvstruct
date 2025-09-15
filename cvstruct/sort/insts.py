@@ -1,9 +1,9 @@
 import numpy as np
 
-from cvstruct.typedef.insts import Insts
+from cvstruct.typedef.insts import InstsType
 
 
-def sort_by_conf(insts: Insts) -> Insts:
+def sort_by_conf(insts: InstsType) -> InstsType:
     sort_idx = np.argsort(insts.confs)[::-1]
     confs = insts.confs[sort_idx]
     cat_ids = insts.cat_ids[sort_idx]

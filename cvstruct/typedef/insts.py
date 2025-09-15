@@ -8,7 +8,7 @@ from cvstruct.typedef.others import CatIDsType, ConfsType
 from cvstruct.typedef.masks import MasksType
 
 
-class Insts:
+class InstsType:
     def __init__(
         self,
         confs: ConfsType,
