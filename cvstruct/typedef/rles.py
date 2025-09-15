@@ -1,4 +1,4 @@
-from typing import Dict, Any, List
+from typing import Dict, Any, List, TypedDict
 
 try:
     from typing import TypeAlias
@@ -6,13 +6,16 @@ except:
     from typing_extensions import TypeAlias
 
 
-RLEType: TypeAlias = Dict[str, Any]
-"""
-`RLEType`
-    `Dict[str, Any]`, `{"size": [img_h, img_w], "counts": "XXXXX"}`
-"""
+class RLEType(TypedDict):
+    """
+    `RLEType`, `dict`
+        `size`: `Tuple[int, int]`, `[img_h, img_w]`
+        `counts`: `str`
+    """
+    size: Tuple[int, int]
+    counts: str
 
-RLEsType: TypeAlias = List[Dict[str, Any]]
+RLEsType: TypeAlias = List[RLEType]
 """
 `RLEsType`
     `List[Dict[str, Any]]`, `[rle1, rle2, ...]`

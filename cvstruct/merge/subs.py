@@ -1,6 +1,6 @@
 import numpy as np
 
-import cvstruct.contours.utils as cnt_utils
+import cvstruct.merge.utils as cnt_utils
 import cvstruct.typedef.contours as cnt_type
 
 

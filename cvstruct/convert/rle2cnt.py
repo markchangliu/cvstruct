@@ -1,24 +1,18 @@
-
 import cv2
+import numpy as np
+
 import pycocotools.mask as pycocomask
 
-import cvstruct.contours.merge as cnt_merge
-from cvstruct.typedef.masks import MaskType, MaskImgType
-from cvstruct.typedef.rles import RLEType
-from cvstruct.typedef.contours import ContourType, ContoursType
+import cvstruct.merge.cnts as cnt_merge
+import cvstruct.typedef.rles as rle_type
+import cvstruct.typedef.contours as cnt_type
 
 
-def rle_to_mask(
-    rle: RLEType,
-) -> MaskType:
-    mask = pycocomask.decode(rle)
-    return mask
-
-def rle_to_contours(
-    rle: RLEType,
+def rle2cnts(
+    rle: rle_type.RLEType,
     approx_flag: bool
-) -> ContoursType:
-    mask = rle_to_mask(rle).astype(np.uint8) * 255
+) -> cnt_type.ContoursType:
+    mask = pycocomask.decode(rle).astype(np.uint8) * 255
     cnts, _ = cv2.findContours(mask, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_TC89_KCOS)
     
     if not approx_flag:
@@ -32,11 +26,11 @@ def rle_to_contours(
     
     return cnts_approx
 
-def rle_to_contour_merge(
-    rle: RLEType,
+def rle2cnt_merge(
+    rle: rle_type.RLEType,
     approx_flag: bool
-) -> ContourType:
-    mask = rle_to_mask(rle).astype(np.uint8) * 255
+) -> cnt_type.ContourType:
+    mask = pycocomask.decode(rle).astype(np.uint8) * 255
     cnts, hierarchies = cv2.findContours(mask, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_TC89_KCOS)
     
     if approx_flag:
@@ -55,4 +49,3 @@ def rle_to_contour_merge(
 
     return cnt
     
-
