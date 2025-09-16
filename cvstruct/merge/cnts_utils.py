@@ -1,3 +1,4 @@
+import copy
 from typing import Tuple, List, Dict, Union
 
 import numpy as np
@@ -5,7 +6,7 @@ import numpy as np
 import cvstruct.typedef.contours as cnt_type
 
 
-def is_clockwise(contour: cnt_type.cnt_type.ContourType) -> bool:
+def is_clockwise(contour: cnt_type.ContourType) -> bool:
     contour_next = np.empty_like(contour)
     point_next_idx = list(range(1, len(contour) + 1))
     point_next_idx[-1] = 0
@@ -40,9 +41,13 @@ def get_contour_groups(
     cnts: cnt_type.ContoursType,
     hierarchies: cnt_type.HierarchiesType
 ) -> cnt_type.ContourGroupsType:
-    cnt_groups = [{"parent": None, "children": []}] * len(cnts)
+    # if cnts[0][0][0][0] == 1043 and cnts[0][0][0][1] == 570:
+    #     print("hi")
+
+    cnt_group_temp = {"parent": None, "children": []}
+    cnt_groups = [copy.deepcopy(cnt_group_temp) for _ in range(len(cnts))]
     for i, (cnt, hierarchy) in enumerate(zip(cnts, hierarchies[0])):
-        if hierarchy[2] == -1:
+        if hierarchy[3] == -1:
             cnt_groups[i]["parent"] = cnt
         else:
             parent_cnt_idx = hierarchy[2]
