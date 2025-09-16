@@ -5,11 +5,15 @@ A toolbox for representing, converting, and visualizing common data structures i
 ## Installation
 
 ```
+# Uninstall old versions
+pip uninstall cvstruct
+rm -fr ./build
+
 # Select one of the versions below, you can not install both
 
 # Install GUI version
-pip install -e .[gui]
+pip install -e .[gui] --config-settings editable_mode=strict
 
 # Install NON-GUI version
-pip install -e .[no_gui]
+pip install -e .[no_gui] --config-settings editable_mode=strict
 ```
