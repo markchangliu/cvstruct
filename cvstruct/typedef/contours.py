@@ -49,7 +49,8 @@ HierarchiesType: TypeAlias = npt.NDArray[np.int32]
     `NDArray[np.int32]`, `(1, num_cnts, 4)`; \n
     `hierarchies[0][cnt_i][0]`: index of next poly in the same hierarchy, `-1` means none. \n
     `hierarchies[0][cnt_i][1]`: index of previous poly in the same hierarchy, `-1` means none. \n
-    `hierarchies[0][cnt_i][2]`: index of parent poly in the higher level hierarchy, `-1` means none. \n
+    `hierarchies[0][cnt_i][2]`: index of firsh_child poly in the higher level hierarchy, `-1` means none. \n
+    `hierarchies[0][cnt_i][3]`: index of parent poly in the higher level hierarchy, `-1` means none. \n
 """
 
 HierarchiesShapeType: TypeAlias = Tuple[Literal[1], int, Literal[4]]
