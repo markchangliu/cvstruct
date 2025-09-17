@@ -38,3 +38,9 @@ PolyYoloType: TypeAlias = List[float]
 `PolysYoloType`
     `List[float]`, `(num_points * 2, )`, `[x1_norm, y1_norm, x2_norm, y2_norm, ...]`
 """
+
+PolysYoloType: TypeAlias = List[List[float]]
+"""
+`PolysYoloType`
+    `List[List[float]]`, `(num_polys, (num_points * 2, ))`
+"""

@@ -53,7 +53,7 @@ def cnts2polys_coco(
 def cnts2polys_yolo(
     cnts: cnt_type.ContoursType,
     img_hw: Tuple[int, int]
-) -> poly_type.PolysCocoType:
+) -> poly_type.PolysYoloType:
     polys_yolo = []
 
     for cnt in cnts:

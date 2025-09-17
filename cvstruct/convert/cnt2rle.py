@@ -13,6 +13,10 @@ def cnt2rle(
     img_hw: Tuple[int, int]
 ) -> rle_type.RLEType:
     poly_coco = cnt2poly.cnt2poly_coco(cnt)
+
+    if len(poly_coco) == 4:
+        poly_coco += poly_coco[-2:]
+
     rle = pycocomask.frPyObjects([poly_coco], img_hw[0], img_hw[1])[0]
     return rle
 
