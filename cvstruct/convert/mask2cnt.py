@@ -41,7 +41,7 @@ def mask2cnt_merge(
         cnts = cnts_approx
     
     if len(cnts) == 0:
-        cnt = np.empty((0, 1, 2))
+        cnt = np.zeros((0, 1, 2))
     elif len(cnts) == 1:
         cnt = cnts[0]
     else:
