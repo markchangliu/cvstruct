@@ -23,3 +23,12 @@ def merge_contours(
     
     return cnt_merge
 
+def merge_contours_sibling(
+    cnts: cnt_type.ContoursType
+) -> cnt_type.ContoursType:
+    cnt_merge = cnts[0]
+
+    for cnt in cnts[1:]:
+        cnt_merge = cnts_subs.merge_two_contours(cnt_merge, cnt)
+    
+    return cnt_merge
