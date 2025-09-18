@@ -1,3 +1,5 @@
+from typing import Tuple
+
 import numpy as np
 
 import cvstruct.typedef.contours as cnt_type
