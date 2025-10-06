@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, List
 
 try:
     from typing import TypeAlias
@@ -11,20 +11,26 @@ import numpy.typing as npt
 
 BBoxesXYXYArrType: TypeAlias = npt.NDArray[np.number]
 """
-`BBoxesXYXYType`
+`BBoxesXYXYArrType`
     `NDArray[np.number]`, `(num_bboxes, 4)`, `[[x1, y1, x2, y2], ...]`
 """
 
-BBoxesXYWHTArrype: TypeAlias = npt.NDArray[np.number]
+BBoxesXYWHArrType: TypeAlias = npt.NDArray[np.number]
 """
-`BBoxesXYWHType`
+`BBoxesXYWHArrType`
     `NDArray[np.number]`, `(num_bboxes, 4)`, `[[x1, y1, w, h], ...]`
 """
 
 BBoxLabelmeType: TypeAlias = Tuple[Tuple[float, float], Tuple[float, float]]
 """
 `BBoxLabelmeType`
-    `Tuple[Tuple[float, float], Tuple[float, float]], `(2, (2, ))`, `[[x1, y1], [x2, y2]], ...]`
+    `Tuple[Tuple[float, float], Tuple[float, float]], `(2, (2, ))`, `[[x1, y1], [x2, y2]]`
+"""
+
+BBoxesLabelmeType: TypeAlias = List[BBoxLabelmeType]
+"""
+`BBoxesLabelmeType`
+    `List[BBoxLabelmeType], `(n, (2, ))`, `[[[x1, y1], [x2, y2]], ...]`
 """
 
 BBoxCocoType: TypeAlias = Tuple[float, float, float, float]
