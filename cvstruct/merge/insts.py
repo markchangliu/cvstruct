@@ -2,12 +2,12 @@ from typing import List
 
 import numpy as np
 
-from cvstruct.typedef.insts import InstsType
+from cvstruct.structures.insts import Insts
 
 
 def concat_insts(
-    insts_list: List[InstsType]
-) -> InstsType:
+    insts_list: List[Insts]
+) -> Insts:
     confs_list = [i.confs for i in insts_list]
     cat_ids_list = [i.cat_ids for i in insts_list]
     bboxes_list = [i.bboxes for i in insts_list]
@@ -22,7 +22,7 @@ def concat_insts(
     else:
         new_masks = np.concatenate(masks_list, axis = 0)
 
-    new_insts = InstsType(
+    new_insts = Insts(
         new_confs, new_cat_ids, new_bboxes, new_masks
     )
 

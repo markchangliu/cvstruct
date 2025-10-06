@@ -16,7 +16,7 @@ def poly2rle_labelme(
     return rle
 
 def poly2rle_coco(
-    poly: poly_type.PolyLabelmeType,
+    poly: poly_type.PolyCocoType,
     img_hw: Tuple[int, int]
 ) -> rle_type.RLEType:
     rle = pycocomask.frPyObjects([poly], img_hw[0], img_hw[1])[0]
@@ -30,4 +30,12 @@ def poly2rle_yolo(
     img_wh = np.asarray((img_hw[1], img_hw[0])).reshape(-1, 2)
     poly = (poly * img_wh).astype(np.int32).flatten().tolist()
     rle = pycocomask.frPyObjects([poly], img_hw[0], img_hw[1])[0]
+    return rle
+
+def polys2rle_merge_coco(
+    polys: poly_type.PolysCocoType,
+    img_hw: Tuple[int, int]
+) -> rle_type.RLEType:
+    rles = pycocomask.frPyObjects(polys, img_hw[0], img_hw[1])
+    rle = pycocomask.merge(rles)
     return rle

@@ -3,17 +3,17 @@ from typing import Optional, Union, List
 import numpy as np
 import numpy.typing as npt
 
-from cvstruct.typedef.bboxes import BBoxesXYXYType
+from cvstruct.typedef.bboxes import BBoxesXYXYArrType
 from cvstruct.typedef.others import CatIDsType, ConfsType
 from cvstruct.typedef.masks import MasksType
 
 
-class InstsType:
+class Insts:
     def __init__(
         self,
         confs: ConfsType,
         cat_ids: CatIDsType,
-        bboxes: BBoxesXYXYType,
+        bboxes: BBoxesXYXYArrType,
         masks: Optional[MasksType],
     ) -> None:
         assert len(confs) == len(cat_ids) == len(bboxes)
@@ -55,3 +55,5 @@ class InstsType:
             new_bboxes, 
             new_masks
         )
+
+        return new_insts

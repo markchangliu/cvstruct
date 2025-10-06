@@ -9,13 +9,13 @@ import numpy as np
 import numpy.typing as npt
 
 
-BBoxesXYXYType: TypeAlias = npt.NDArray[np.number]
+BBoxesXYXYArrType: TypeAlias = npt.NDArray[np.number]
 """
 `BBoxesXYXYType`
     `NDArray[np.number]`, `(num_bboxes, 4)`, `[[x1, y1, x2, y2], ...]`
 """
 
-BBoxesXYWHType: TypeAlias = npt.NDArray[np.number]
+BBoxesXYWHTArrype: TypeAlias = npt.NDArray[np.number]
 """
 `BBoxesXYWHType`
     `NDArray[np.number]`, `(num_bboxes, 4)`, `[[x1, y1, w, h], ...]`
